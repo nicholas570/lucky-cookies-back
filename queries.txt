@@ -1,0 +1,7 @@
+select c.id, c.name, c.description, c.price, c.image, GROUP_CONCAT(ing.name) ingredients from cookie c
+join cookie_ingredients c_i
+on c.id = c_i.cookie_id
+join ingredient ing
+on ing.id = c_i.ingredient_id
+group by c.id
+;
