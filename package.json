@@ -20,12 +20,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "node_modules/.bin/lint-staged"
     }
   },
   "lint-staged": {
-    "src/**/*.{js}": [
-      "./node_modules/.bin/eslint --max-warnings=0"
+    "**/*.js": [
+      "prettier --config .prettierrc -l",
+      "node_modules/.bin/eslint"
     ]
   },
   "dependencies": {
