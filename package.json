@@ -23,13 +23,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node_modules/.bin/lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "**/*.js": [
-      "prettier --config .prettierrc -l",
-      "node_modules/.bin/eslint"
+      "./node_modules/.bin/eslint --max-warnings=0"
     ]
   },
   "dependencies": {
