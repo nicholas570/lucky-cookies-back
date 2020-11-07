@@ -2,6 +2,7 @@ const express = require('express');
 const con = require('../conf');
 
 const router = express.Router();
+const format = require('../controllers/cookies.js');
 
 router.get('/', (req, res) => {
   con.query(
@@ -14,7 +15,8 @@ router.get('/', (req, res) => {
       if (err) {
         return res.status(500).send('Something went wrong');
       }
-      return res.json(result);
+      const formatedResult = format(result);
+      return res.json(formatedResult);
     }
   );
 });
