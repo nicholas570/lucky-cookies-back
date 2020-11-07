@@ -1,4 +1,5 @@
 const express = require('express');
+
 const cookies = require('./routes/cookies');
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(
     extended: true,
   })
 );
+
 
 app.use('/api/cookies', cookies);
 
