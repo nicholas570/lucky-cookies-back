@@ -38,7 +38,8 @@ router.get('/:id', (req, res) => {
       if (result.length === 0) {
         return res.status(404).send('Cookie not found');
       }
-      return res.json(result);
+      const formatedResult = format(result);
+      return res.json(formatedResult);
     }
   );
 });
