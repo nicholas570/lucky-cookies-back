@@ -1,5 +1,6 @@
 const express = require('express');
-// const con = require('./conf');
+
+const cookies = require('./routes/cookies');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -11,7 +12,13 @@ app.use(
   })
 );
 
-app.listen(port, () => {
-  // eslint-disable-next-line
-  console.log(`server listening on ${port}`);
+
+app.use('/api/cookies', cookies);
+
+app.listen(port, (err) => {
+  if (err) {
+    throw new Error(err);
+  } else {
+    console.log(`server listening on port ${port}`);
+  }
 });
