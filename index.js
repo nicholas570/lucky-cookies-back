@@ -12,13 +12,13 @@ app.use(
   })
 );
 
-
 app.use('/api/cookies', cookies);
 
 app.listen(port, (err) => {
   if (err) {
     throw new Error(err);
   } else {
+    // eslint-disable-next-line
     console.log(`server listening on port ${port}`);
   }
 });
