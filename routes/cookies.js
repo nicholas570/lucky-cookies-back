@@ -2,6 +2,7 @@ const express = require('express');
 const con = require('../conf');
 
 const router = express.Router();
+const format = require('../controllers/cookies.js');
 
 router.get('/', (req, res) => {
   con.query(
@@ -14,7 +15,8 @@ router.get('/', (req, res) => {
       if (err) {
         return res.status(500).send('Something went wrong');
       }
-      return res.json(result);
+      const formatedResult = format(result);
+      return res.json(formatedResult);
     }
   );
 });
@@ -36,7 +38,8 @@ router.get('/:id', (req, res) => {
       if (result.length === 0) {
         return res.status(404).send('Cookie not found');
       }
-      return res.json(result);
+      const formatedResult = format(result);
+      return res.json(formatedResult);
     }
   );
 });
