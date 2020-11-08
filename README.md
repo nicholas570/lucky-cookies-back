@@ -1,6 +1,6 @@
 # Lucky Cookies Website
 
-![image](./public/assets/images/readme.png?raw=true)
+![image](lucky.png?raw=true)
 
 [Front end repository ](https://github.com/nicholas570/lucky-cookies)
 
@@ -9,7 +9,6 @@
 - Node.js
 - Express.js
 - MySql
-- Redux
 - Eslint / Prettier and Husky
 - AirBnb style guide
 
