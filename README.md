@@ -9,6 +9,7 @@
 - Node.js
 - Express.js
 - MySql
+- Nodemailer
 - Eslint / Prettier and Husky
 - AirBnb style guide
 
@@ -16,7 +17,6 @@
 
 - Post/update/delete routes in admin interface
 - Authentication
-- Make contact form active with Nodemailer
 
 ### Preview here:
 
