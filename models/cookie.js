@@ -1,4 +1,4 @@
-const con = require('../conf');
+const con = require('../database/conf');
 
 const format = require('../format');
 
