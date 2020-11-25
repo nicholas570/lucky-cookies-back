@@ -4,7 +4,15 @@
 
 [Front end repository ](https://github.com/nicholas570/lucky-cookies)
 
-### What I used:
+### Routes:
+
+| Method |       Path       |
+| ------ | :--------------: |
+| GET    |   /api/cookies   |
+| GET    | /api/cookies/:id |
+| POST   |  /api/contacts   |
+
+### Techs:
 
 - Node.js
 - Express.js
@@ -16,6 +24,7 @@
 ### Todo:
 
 - Post/update/delete routes in admin interface
+- Newsletter subscription
 - Authentication
 
 ### Preview here:
