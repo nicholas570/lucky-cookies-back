@@ -11,6 +11,7 @@
 | GET    |   /api/cookies   |
 | GET    | /api/cookies/:id |
 | POST   |  /api/contacts   |
+| POST   | /api/newsletter  |
 
 ### Techs:
 
@@ -18,13 +19,14 @@
 - Express.js
 - MySql
 - Nodemailer
+- Heroku
 - Eslint / Prettier and Husky
 - AirBnb style guide
 
 ### Todo:
 
 - Post/update/delete routes in admin interface
-- Newsletter subscription
+- Secure newsletter and contacts routes with a validator
 - Authentication
 
 ### Preview here:
