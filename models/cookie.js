@@ -1,6 +1,6 @@
 const con = require('../database/conf');
 
-const format = require('../format');
+const format = require('../utils/format');
 
 const Cookie = {};
 
