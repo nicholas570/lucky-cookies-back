@@ -3,6 +3,7 @@ const cors = require('cors');
 
 const cookies = require('./routes/cookies');
 const contacts = require('./routes/contacts');
+const newsLetter = require('./routes/newsLetter');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -16,7 +17,8 @@ app.use(
 );
 
 app.use('/api/cookies', cookies);
-app.use('/contacts', contacts);
+app.use('/api/contacts', contacts);
+app.use('/api/newsletter', newsLetter);
 
 app.listen(port, (err) => {
   if (err) {
