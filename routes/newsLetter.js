@@ -4,6 +4,6 @@ const NewsLetter = require('../models/newsLetter');
 
 const router = express.Router();
 
-router.post('/', [NewsLetter.subscribe, NewsLetter.confirm]);
+router.post('/', NewsLetter.subscribe);
 
 module.exports = router;
