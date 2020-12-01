@@ -25,9 +25,10 @@
 
 ### Todo:
 
-- Post/update/delete routes in admin interface
-- Secure newsletter and contacts routes with a validator
+Admin interface:
+
 - Authentication
+- POST/UPDATE/DELETE routes
 
 ### Preview here:
 
