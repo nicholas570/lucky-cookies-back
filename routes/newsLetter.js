@@ -4,6 +4,8 @@ const NewsLetter = require('../models/newsLetter');
 
 const router = express.Router();
 
-router.post('/', [NewsLetter.subscribe, NewsLetter.confirm]);
+const validateSubscription = require('../middlewares/validations/checkNewsLetter');
+
+router.post('/', validateSubscription, NewsLetter.subscribe);
 
 module.exports = router;
