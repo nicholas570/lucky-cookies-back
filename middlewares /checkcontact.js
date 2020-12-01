@@ -12,7 +12,7 @@ const validateContact = [
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(422).send({
+      res.status(422).send({
         success: false,
         message: `${errors.array()[0].param} ${errors.array()[0].msg}`,
       });
