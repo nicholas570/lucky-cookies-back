@@ -11,7 +11,8 @@ module.exports = {
         WHERE c.id = ?
         GROUP by c.id`,
   CREATE_A_CART: 'INSERT INTO cart (id) values (null)',
-  GET_ONE_CART: `SELECT * FROM cart
+  GET_ONE_CART: `SELECT cookie_id, cart_id, quantity, name, price, image
+    FROM cart
     JOIN cookie_cart ON cart.id = cookie_cart.cart_id
     JOIN cookie ON cookie_cart.cookie_id = cookie.id
     WHERE cart.id = ?`,
