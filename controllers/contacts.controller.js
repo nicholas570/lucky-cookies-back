@@ -26,6 +26,7 @@ const ContactsController = {
           res.status(500).send({
             success: false,
             message: 'Something went wrong. Try again later',
+            err,
           });
         } else {
           res.send({
@@ -39,6 +40,7 @@ const ContactsController = {
       res.status(500).send({
         success: false,
         message: 'Something went wrong. Try again later',
+        error,
       });
     }
   },
