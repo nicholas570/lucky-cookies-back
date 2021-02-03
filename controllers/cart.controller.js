@@ -113,6 +113,37 @@ const CartController = {
       });
     });
   },
+
+  removeItem: async (req, res) => {
+    const { cookieId } = req.body;
+    const { cardId } = req.params;
+    await CartModel.deleteItem(cookieId, cardId, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          success: false,
+          message: 'Something went wrong. Try again later',
+          result: {},
+          err,
+        });
+      }
+
+      if (!result.affectedRows) {
+        return res.status(404).json({
+          success: false,
+          error: 'No item found',
+          result: {},
+          err,
+        });
+      }
+
+      return res.status(200).json({
+        success: false,
+        message: 'Successfully deleted this item',
+        result,
+        err: '',
+      });
+    });
+  },
 };
 
 module.exports = CartController;
