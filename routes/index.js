@@ -7,6 +7,6 @@ const cartRouter = require('./cart.router');
 router.use('/contact', contactRouter);
 router.use('/newsletter', newsLetterRouter);
 router.use('/cookies', cookieRouter);
-router.use('/cart', cartRouter);
+router.use('/carts', cartRouter);
 
 module.exports = router;

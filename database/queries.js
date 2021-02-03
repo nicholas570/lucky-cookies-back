@@ -10,4 +10,6 @@ module.exports = {
         JOIN ingredient ing ON ing.id = c_i.ingredient_id
         WHERE c.id = ?
         GROUP by c.id`,
+  CREATE_A_CART: 'INSERT INTO cart (id) values (null)',
+  GET_ONE_CART: 'SELECT * FROM cart WHERE id = ?',
 };

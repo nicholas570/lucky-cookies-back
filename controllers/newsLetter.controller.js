@@ -3,7 +3,7 @@ const transporter = require('../nodemailer/config');
 require('dotenv').config();
 
 const NewsLetterController = {
-  subscribe: (req, res) => {
+  subscribe: async (req, res) => {
     try {
       const mailOptions = {
         from: req.body.email,
@@ -20,7 +20,8 @@ const NewsLetterController = {
         </ul>
         `,
       };
-      transporter.sendMail(mailOptions, (err) => {
+
+      await transporter.sendMail(mailOptions, (err) => {
         if (err) {
           return res.status(500).json({
             success: false,
@@ -40,7 +41,7 @@ const NewsLetterController = {
     }
   },
 
-  confirm: (req, res) => {
+  confirm: async (req, res) => {
     try {
       const mailOptions = {
         from: process.env.MAIL,
@@ -53,7 +54,7 @@ const NewsLetterController = {
         <p>See you soon at Lucky Cookies</p>
         `,
       };
-      transporter.sendMail(mailOptions, (err) => {
+      await transporter.sendMail(mailOptions, (err) => {
         if (err) {
           return res.status(500).json({
             success: false,
@@ -62,6 +63,7 @@ const NewsLetterController = {
             err,
           });
         }
+
         return res.status(200).json({
           success: true,
           message: 'Thanks for subscribing. We will get back to you shortly',

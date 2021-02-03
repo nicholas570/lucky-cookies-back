@@ -3,7 +3,7 @@ const transporter = require('../nodemailer/config');
 require('dotenv').config();
 
 const ContactsController = {
-  send: (req, res) => {
+  send: async (req, res) => {
     try {
       const mailOptions = {
         from: req.body.email,
@@ -21,7 +21,7 @@ const ContactsController = {
         </ul>
         `,
       };
-      transporter.sendMail(mailOptions, (err) => {
+      await transporter.sendMail(mailOptions, (err) => {
         if (err) {
           return res.status(500).json({
             success: false,
@@ -30,11 +30,12 @@ const ContactsController = {
             err,
           });
         }
+
         return res.status(200).json({
           success: true,
           message: 'Thanks for contacting us. We will get back to you shortly',
           result: {},
-          err,
+          err: '',
         });
       });
     } catch (err) {
