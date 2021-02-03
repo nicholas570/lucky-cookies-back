@@ -11,7 +11,10 @@ module.exports = {
         WHERE c.id = ?
         GROUP by c.id`,
   CREATE_A_CART: 'INSERT INTO cart (id) values (null)',
-  GET_ONE_CART: 'SELECT * FROM cart WHERE id = ?',
+  GET_ONE_CART: `SELECT * FROM cart
+    JOIN cookie_cart ON cart.id = cookie_cart.cart_id
+    JOIN cookie ON cookie_cart.cookie_id = cookie.id
+    WHERE cart.id = ?`,
   ADD_ITEM_TO_CART: 'INSERT INTO cookie_cart set ?',
   DELETE_AN_ITEM: 'DELETE FROM cookie_cart WHERE cookie_id = ? AND cart_id = ?',
 };
