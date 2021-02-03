@@ -12,7 +12,7 @@ const CartController = {
         });
       }
 
-      return CartModel.findOne(result.insertedId, (error, records) => {
+      return CartModel.findOne(result.insertId, (error, records) => {
         if (err) {
           return res.status(500).json({
             success: false,
@@ -29,6 +29,7 @@ const CartController = {
             err: '',
           });
         }
+
         return res.status(201).json({
           success: false,
           message: 'Successfully created a cart',
