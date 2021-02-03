@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-const Contacts = require('../models/contacts');
+const ContactsController = require('../controllers/contacts.controller');
 
 const validateContact = require('../middlewares/validations/checkContact');
 
-router.post('/', validateContact, Contacts.send);
+router.post('/', validateContact, ContactsController.send);
 
 module.exports = router;

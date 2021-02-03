@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const NewsLetter = require('../models/newsLetter');
+const NewsLetter = require('../controllers/newsLetter.controller');
 
 const validateSubscription = require('../middlewares/validations/checkNewsLetter');
 
