@@ -1,4 +1,6 @@
 const CartModel = require('../models/cart.model');
+const CookieModel = require('../models/cookie.model');
+const toSnackCase = require('../utils/toSnackCase');
 
 const CartController = {
   create: async (req, res) => {
@@ -41,8 +43,8 @@ const CartController = {
   },
 
   getOne: async (req, res) => {
-    const { id } = req.params;
-    await CartModel.findOne(id, (err, result) => {
+    const { cartId } = req.params;
+    await CartModel.findOne(cartId, (err, result) => {
       if (err) {
         return res.status(500).json({
           success: false,
@@ -51,6 +53,7 @@ const CartController = {
           err,
         });
       }
+
       if (result.length === 0) {
         return res.status(404).json({
           success: false,
@@ -59,11 +62,54 @@ const CartController = {
           err: '',
         });
       }
+
       return res.status(200).json({
         success: false,
         message: 'Successfully found this cart',
         result,
         err: '',
+      });
+    });
+  },
+
+  addItem: async (req, res) => {
+    const item = toSnackCase(req.body);
+
+    await CartModel.addItem(item, (err) => {
+      if (err) {
+        return res.status(500).json({
+          success: false,
+          message: 'Something went wrong. Try again later',
+          result: {},
+          err,
+        });
+      }
+
+      return CookieModel.findOne(req.body.cookieId, (error, records) => {
+        if (err) {
+          return res.status(500).json({
+            success: false,
+            message: 'Something went wrong. Try again later',
+            result: {},
+            err: error,
+          });
+        }
+
+        if (records.length === 0) {
+          return res.status(404).json({
+            success: false,
+            message: 'No item found',
+            result: {},
+            err: '',
+          });
+        }
+
+        return res.status(201).json({
+          success: false,
+          message: 'Successfully added this item',
+          result: records[0],
+          err: '',
+        });
       });
     });
   },

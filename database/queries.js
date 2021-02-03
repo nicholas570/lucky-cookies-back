@@ -12,4 +12,5 @@ module.exports = {
         GROUP by c.id`,
   CREATE_A_CART: 'INSERT INTO cart (id) values (null)',
   GET_ONE_CART: 'SELECT * FROM cart WHERE id = ?',
+  ADD_ITEM_TO_CART: 'INSERT INTO cookie_cart set ?',
 };
