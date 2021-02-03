@@ -1,8 +1,6 @@
-const express = require('express');
+const router = require('express').Router();
 
 const NewsLetter = require('../models/newsLetter');
-
-const router = express.Router();
 
 const validateSubscription = require('../middlewares/validations/checkNewsLetter');
 
