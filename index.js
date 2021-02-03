@@ -1,6 +1,9 @@
+/* eslint-disable no-console */
 const express = require('express');
 const cors = require('cors');
 const api = require('./routes');
+
+const port = process.env.PORT || 8080;
 
 const app = express();
 
@@ -14,4 +17,10 @@ app.use(
 
 app.use('/api', api);
 
-module.exports = app;
+app.listen(port, (err) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(`Express server listening on ${port}`);
+  }
+});
