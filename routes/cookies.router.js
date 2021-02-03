@@ -1,11 +1,9 @@
-const express = require('express');
+const router = require('express').Router();
 
-const Cookie = require('../models/cookie');
+const CookieController = require('../controllers/cookie.controller');
 
-const router = express.Router();
+router.get('/', CookieController.getAll);
 
-router.get('/', Cookie.getAll);
-
-router.get('/:id', Cookie.getOne);
+router.get('/:id', CookieController.getOne);
 
 module.exports = router;

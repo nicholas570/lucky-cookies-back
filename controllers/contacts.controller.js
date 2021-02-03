@@ -23,24 +23,26 @@ const ContactsController = {
       };
       transporter.sendMail(mailOptions, (err) => {
         if (err) {
-          res.status(500).send({
+          return res.status(500).json({
             success: false,
             message: 'Something went wrong. Try again later',
+            result: {},
             err,
           });
-        } else {
-          res.send({
-            success: true,
-            message:
-              'Thanks for contacting us. We will get back to you shortly',
-          });
         }
+        return res.status(200).json({
+          success: true,
+          message: 'Thanks for contacting us. We will get back to you shortly',
+          result: {},
+          err,
+        });
       });
-    } catch (error) {
-      res.status(500).send({
+    } catch (err) {
+      return res.status(500).json({
         success: false,
         message: 'Something went wrong. Try again later',
-        error,
+        result: {},
+        err,
       });
     }
   },

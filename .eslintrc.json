@@ -14,6 +14,7 @@
   },
   "rules": {
     "comma-dangle": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "consistent-return": "off"
   }
 }

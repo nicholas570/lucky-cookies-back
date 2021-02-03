@@ -22,21 +22,17 @@ const NewsLetterController = {
       };
       transporter.sendMail(mailOptions, (err) => {
         if (err) {
-          res.status(500).send({
+          return res.status(500).json({
             success: false,
             message: 'Something went wrong. Try again later',
+            result: {},
             err,
           });
-        } else {
-          res.send({
-            success: true,
-            message: 'Thanks for subscribing. We will get back to you shortly',
-          });
-          NewsLetterController.confirm(req, res);
         }
+        return NewsLetterController.confirm(req, res);
       });
     } catch (error) {
-      res.status(500).send({
+      res.status(500).json({
         success: false,
         message: 'Something went wrong. Try again later',
         error,
@@ -59,21 +55,26 @@ const NewsLetterController = {
       };
       transporter.sendMail(mailOptions, (err) => {
         if (err) {
-          res.status(500).send({
+          return res.status(500).json({
             success: false,
             message: 'Something went wrong. Try again later',
-          });
-        } else {
-          res.send({
-            success: true,
-            message: 'Thanks for subscribing. We will get back to you shortly',
+            result: {},
+            err,
           });
         }
+        return res.status(200).json({
+          success: true,
+          message: 'Thanks for subscribing. We will get back to you shortly',
+          result: {},
+          err: '',
+        });
       });
     } catch (error) {
-      res.status(500).send({
+      res.status(500).json({
         success: false,
         message: 'Something went wrong. Try again later',
+        result: {},
+        error,
       });
     }
   },
