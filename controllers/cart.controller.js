@@ -114,9 +114,8 @@ const CartController = {
   },
 
   removeItem: async (req, res) => {
-    const { cookieId } = req.body;
-    const { cardId } = req.params;
-    await CartModel.deleteItem(cookieId, cardId, (err, result) => {
+    const { cartId, cookieId } = req.params;
+    await CartModel.deleteItem(cookieId, cartId, (err, result) => {
       if (err) {
         return res.status(500).json({
           success: false,

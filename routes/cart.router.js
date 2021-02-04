@@ -3,7 +3,7 @@ const CartController = require('../controllers/cart.controller');
 
 router.post('/', CartController.create);
 router.get('/:cartId', CartController.getOne);
-router.post('/add-item', CartController.addItem);
-router.delete('/:cardId', CartController.removeItem);
+router.post('/:cartId', CartController.addItem);
+router.delete('/:cartId/:cookieId', CartController.removeItem);
 
 module.exports = router;
