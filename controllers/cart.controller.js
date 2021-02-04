@@ -106,7 +106,7 @@ const CartController = {
         return res.status(201).json({
           success: true,
           message: 'Successfully added this item',
-          result: records[0],
+          result: records,
           err: '',
         });
       });
