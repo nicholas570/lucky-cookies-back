@@ -137,7 +137,7 @@ const CartController = {
       return res.status(200).json({
         success: false,
         message: 'Successfully deleted this item',
-        result,
+        result: { ...result, cookieId },
         err: '',
       });
     });
