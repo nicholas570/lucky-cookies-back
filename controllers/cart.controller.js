@@ -1,5 +1,4 @@
 const CartModel = require('../models/cart.model');
-const CookieModel = require('../models/cookie.model');
 const toSnackCase = require('../utils/toSnackCase');
 
 const CartController = {
@@ -85,7 +84,7 @@ const CartController = {
         });
       }
 
-      return CookieModel.findOne(req.body.cookieId, (error, records) => {
+      return CartModel.findOne(req.body.cartId, (error, records) => {
         if (err) {
           return res.status(500).json({
             success: false,
@@ -105,7 +104,7 @@ const CartController = {
         }
 
         return res.status(201).json({
-          success: false,
+          success: true,
           message: 'Successfully added this item',
           result: records[0],
           err: '',
